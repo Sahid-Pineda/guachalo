@@ -1,0 +1,4 @@
+backend-python/venv/
+**/__pycache__/
+*.pyc
+EOF
