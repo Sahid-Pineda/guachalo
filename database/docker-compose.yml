@@ -1,0 +1,17 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: catalogo_sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      # SQL Server exige mayúsculas, minúsculas, números y símbolos (mínimo 8 caracteres)
+      MSSQL_SA_PASSWORD: "GuachaloWeb2026!"
+      MSSQL_PID: "Express"
+    ports:
+      - "1434:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  sqlserver_data:
